@@ -48,10 +48,12 @@ def run():
     push_args = ['push', '--follow-tags', '--set-upstream', 'origin', branch]
     if force_push == 'true':
         push_args.append('--force')
+    push_args.append('--tags')
     debug(git(['checkout', '-B', branch]))
     debug(git(add_args))
     debug(git(['commit', '-m', commit_message], retcode=None))
     debug(git(push_args))
+
 
 if __name__ == '__main__':
     run()
